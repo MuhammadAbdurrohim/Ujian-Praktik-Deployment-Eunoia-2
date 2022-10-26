@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Judul Halaman -->
+	<title>EUNOIA 2</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Icon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/bootstrap.min.css') }} type="text/css">
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/client_side.css') }}  type="text/css">
+	
+	<!-- JavaScript -->
+	<script src={{ url_for('static', filename='/js/jquery_3.6.0.min.js') }} ></script>
+	<script src={{ url_for('static', filename='/js/bootstrap_3.4.1.min.js') }} ></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			
+			<!-- Logo -->
+			<div class="navbar-header">
+				<img src={{ url_for('static', filename='/images/orbit_logo.jpg') }} alt="Orbit Logo" 
+				width="50" height="50" align="left">
+				<a class="navbar-brand" href="#halamanku">&#160; Kelompok 2 EUNOIA</a>
+			</div>
+			
+			<!-- Daftar Halaman -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#informasi">INFORMASI</a></li>
+					<li><a href="#aplikasi">APLIKASI</a></li>
+					<li><a href="#anggotaKelompok">ANGGOTA KELOMPOK</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Bagian Halaman (Informasi) -->
+	<div id="informasi" class="container-fluid" style="background-image: url('static/img/ukuran.jpg');">
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<!-- Deskripsi Aplikasi -->
+				<h2>PRE-BE-DAN</h2>
+				<h4>Prediksi Berat Badan</h4><br>
+				<p style="text-align: justify;text-justify: inter-word;">
+					Website ini menyajikan informasi Check up Prediksi Berat Badan
+					
+				</p>
+				<br>
+
+				
+			</div>
+			
+			<div class="col-sm-6">
+				<br>
+				<br>
+				<!-- Gambar Deskripsi Aplikasi -->
+				<img src={{ url_for('static', filename='/images/ukuran.jpg') }} width="500" ></img>
+			</div>
+		</div>
+		<br>
+	</div>
+	
+
+	<!-- Bagian Halaman (Aplikasi) -->
+	<div id="aplikasi" data-bs-spy="scroll" data-bs-target="#navgo" data-bs-offset="0" class="scrollspy-example" tabindex="0" >
+		<br>
+		<br>
+		<body class="bg-gray-100">
+			<!-- component -->
+			<!-- component -->
+			<div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+				<div class="container flex mx-auto">
+					<div class="inputs w-full max-w-2xl p-6">
+						<h2 class="text-2xl text-gray-900">Prediksi Berat Badan</h2>
+						<form class="mt-6 border-t border-gray-400 pt-4" method="POST" action="">
+							<div class='flex flex-wrap -mx-3 mb-6'>
+								<div class='w-full md:w-full px-3 mb-6'>
+									<p class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>
+										Pilih Jenis Kelamin</p>
+									<input type="radio" id='grid-text-1' name='Gender_Male' value='Male'>
+									<label for='grid-text-1'>Male</label>
+									<input type="radio" id='grid-text-2' name='Gender_Male' value='Female'>
+									<label for='grid-text-2'>Female</label>
+								</div>
+								<div class='w-full md:w-full px-3 mb-6'>
+									<label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+										for='grid-text-3'>Masukan ukuran Tinggi Badan !</label>
+									<input type="text"
+										class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+										id='grid-text-3' type='text' placeholder='Input Your Height (cm), ex: 175'
+										name="Height" required>
+								</div>
+							</div>
+							<div class="flex justify-end ">
+								<button
+									class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md hover:bg-gray-300"
+									type="submit">Prediksi</button>
+							</div>
+					</div>
+					</form>
+					{% if result is defined %}
+					<div class="prediction-result w-full max-w-2xl p-6">
+						<h2 class="text-2xl text-gray-900">Hasil Prediksi Berat Badan</h2>
+						<h2 class="mx-auto text-3xl text-center px-2 py-2 bg-gray-300 rounded rounded-full mt-5">{{result}} Kg</h2>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</body>
+			<div class="col-sm-6">
+				<br>
+				<!-- Bagian Halaman untuk Hasil Prediksi -->
+				<div id="hasil_prediksi" align="center">
+						<!-- Hasil Prediksi akan ditampilkan di sini-->
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+
+	<!-- Bagian Halaman (Anggota Kelompok) -->
+	<div id="anggotaKelompok" class="container-fluid text-center">
+		<br>
+		<h2>ANGGOTA KELOMPOK</h2>
+		<h4>Tim Deployment Eunoia 2</h4>
+		<br>
+		<div class="row slideanim">
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/ohim.jpg') }} width="100" ></img>
+				<h4>Muhammad Abdurrohim</h4>
+				<p>Universitas Catur Insan Cendekia Cirebon</p>
+			</div>
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/imel1.jpg') }} width="100" ></img>
+				<h4>Imelda Rara Rahmawati</h4>
+				<p>Universitas Pendidikan Indonesia Bandung</p>
+			</div>
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/aban1.jpg') }} width="100" ></img>
+				<h4>Mochammad Rois Nabhan</h4>
+				<p>Universitas Pendidikan Indonesia Bandung</p>
+			</div>
+		</div>
+	    <br>
+	    <div class="row slideanim">
+			<div class="col-sm-6">
+				<img src={{ url_for('static', filename='/images/zeri1.jpg') }} width="100" ></img>
+				<h4>Zeri Nurtilia</h4>
+				<p>Universitas Lampung</p>
+			</div>
+			<div class="col-sm-6">
+				<img src={{ url_for('static', filename='/images/rena1.jpg') }} width="100" ></img>
+				<h4>Renata Adisti Pratiwi</h4>
+				<p>Universitas Lampung</p>
+			</div>
+	    </div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<a href="#halamanku" title="To Top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+		<p>Kelompok 2 EUNOIA <br> <a href="https://kelompok2eunoia.id/">kelompok2eunoia</a></p>
+	</footer>
+
+	<!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->
+	<script  src={{ url_for('static', filename='/js/client_side.js') }}></script>
+
+</body>
+</html>
